@@ -21,8 +21,11 @@ public class PlayerService : MonoBehaviour, IPlayerService
         if (File.Exists(Application.persistentDataPath + "/" + nameSaveFile))
             PlayerLoad();
         else
+        {
             _playerData = new PlayerData();
-        
+            _playerData.life = 3;
+        }
+
         foreach (var diff in diffs)
             diffsDic.Add(diff.first, diff.last);
     }
